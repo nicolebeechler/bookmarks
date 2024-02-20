@@ -1,6 +1,5 @@
 import styles from './BookmarkList.module.scss'
 import Bookmark from '../Bookmark/Bookmark'
-
  
 export default function BookmarkList ({ 
     newBookmark, 
@@ -47,9 +46,11 @@ export default function BookmarkList ({
             <Bookmark 
                 key={bookmark._id} 
                 bookmark={bookmark}
-                inputAction ={updateBookmark} 
-                buttonAction={deleteBookmark}
-                buttonText={'X'}
+                // type in input fields, click update by link 
+                updateAction={(id) => updateBookmark(id, newBookmark)} 
+                updateButtonText={`Update`}
+                deleteAction={deleteBookmark}
+                deleteButtonText={`X`}
             />
         ))}
         </div>
