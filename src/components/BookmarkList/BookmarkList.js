@@ -46,9 +46,8 @@ export default function BookmarkList ({
             <Bookmark 
                 key={bookmark._id} 
                 bookmark={bookmark}
-                // type in input fields, click update by link 
-                updateAction={(id) => updateBookmark(id, newBookmark)} 
-                updateButtonText={`Update`}
+                // updateAction={(id) => updateBookmark(id, newBookmark)} 
+                // updateButtonText={`Update`}
                 deleteAction={deleteBookmark}
                 deleteButtonText={`X`}
             />
