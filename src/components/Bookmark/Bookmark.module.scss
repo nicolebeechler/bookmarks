@@ -2,11 +2,33 @@
     /*! keep */
     font-size: 1.5rem;
     color: rgba(23, 5, 58, 0.79);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 7px;
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .bookmarkImg {
+        background: #fff;
+        padding: 7px;
+        border-radius: 50%;
+      }
+
+    .bookmarkLink {
+        text-decoration: none;
+        color: white;
+    }
+
     .button {
         background-color: transparent;
         text-transform: uppercase;
         cursor: pointer;
-        color: #999;
+        color: aliceblue;
         padding: 0.25rem 1rem;
         font-size: 1rem;
         font-weight: 700;
@@ -14,4 +36,5 @@
         margin-left: 1rem;
         border: 0px;
     }
+
 }

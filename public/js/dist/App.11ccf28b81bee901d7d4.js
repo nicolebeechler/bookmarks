@@ -146,14 +146,32 @@ function Bookmark(_ref) {
   } = _ref;
   return /*#__PURE__*/React.createElement("div", {
     className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmark
+  }, /*#__PURE__*/React.createElement("div", {
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].row
   }, /*#__PURE__*/React.createElement("a", {
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkBtn,
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkLink,
     target: "_blank",
     href: bookmark.url
-  }, bookmark.title), /*#__PURE__*/React.createElement("button", {
+  }, /*#__PURE__*/React.createElement("img", {
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkImg,
+    src: "https://www.google.com/s2/favicons?domain=".concat(bookmark.url, "&sz=24"),
+    alt: bookmark.title,
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkImage
+  }))), /*#__PURE__*/React.createElement("div", {
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].row
+  }, /*#__PURE__*/React.createElement("a", {
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkLink,
+    target: "_blank",
+    href: bookmark.url
+  }, bookmark.title)), /*#__PURE__*/React.createElement("div", {
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].row
+  }, /*#__PURE__*/React.createElement("button", {
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].button,
+    onClick: () => updateAction(bookmark._id)
+  }, updateButtonText), /*#__PURE__*/React.createElement("button", {
     className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].button,
     onClick: () => deleteAction(bookmark._id)
-  }, deleteButtonText));
+  }, deleteButtonText)));
 }
 
 /***/ }),
@@ -221,13 +239,11 @@ function BookmarkList(_ref) {
     }
   }, "Add")), allBookmarks.map(bookmark => /*#__PURE__*/React.createElement(_Bookmark_Bookmark__WEBPACK_IMPORTED_MODULE_1__["default"], {
     key: bookmark._id,
-    bookmark: bookmark
-    // type in input fields, click update by link 
-    ,
+    bookmark: bookmark,
     updateAction: id => updateBookmark(id, newBookmark),
-    updateButtonText: "Update",
+    updateButtonText: "Edit",
     deleteAction: deleteBookmark,
-    deleteButtonText: "X"
+    deleteButtonText: "Delete"
   })));
 }
 
@@ -248,7 +264,7 @@ function BookmarkList(_ref) {
 
 
 const root = (0,react_dom_client__WEBPACK_IMPORTED_MODULE_1__.createRoot)(document.getElementById("app"));
-root.render( /*#__PURE__*/React.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null, /*#__PURE__*/React.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], null)));
+root.render( /*#__PURE__*/React.createElement(react__WEBPACK_IMPORTED_MODULE_0__.StrictMode, null, /*#__PURE__*/React.createElement(_App__WEBPACK_IMPORTED_MODULE_2__["default"], null))); // <Router>
 
 /***/ }),
 
@@ -277,6 +293,8 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   flex-direction: column;
   align-items: center;
   background-color: white;
+  background-image: linear-gradient(80deg, rgb(248, 80, 156), rgb(245, 136, 33));
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .KTmxx2sH00E53HXHCND1 {
@@ -294,7 +312,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `body {
   width: 100%;
   text-align: center;
   color: rgba(23, 5, 58, 0.8);
-}`, "",{"version":3,"sources":["webpack://./src/App.module.scss"],"names":[],"mappings":"AAAA;EACI,SAAA;EACA,iBAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;AACJ;;AAEA;EACI,WAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,sBAAA;AACJ;AAAI;EACI,UAAA;EACA,iBAAA;AAER;AAAI;EACI,WAAA;EACA,kBAAA;EACA,2BAAA;AAER","sourcesContent":["body {\n    margin: 0;\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background-color: white;\n}\n\n.banner{\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    img {\n        width: 50%;\n        max-height: 300px;\n    }\n    h1 {\n        width: 100%;\n        text-align: center;\n        color: rgba(23,5, 58, 0.8);\n    }\n}\n"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/App.module.scss"],"names":[],"mappings":"AAAA;EACI,SAAA;EACA,iBAAA;EACA,aAAA;EACA,sBAAA;EACA,mBAAA;EACA,uBAAA;EACA,8EAAA;EACA,yCAAA;AACJ;;AAEA;EACI,WAAA;EACA,aAAA;EACA,uBAAA;EACA,mBAAA;EACA,sBAAA;AACJ;AAAI;EACI,UAAA;EACA,iBAAA;AAER;AAAI;EACI,WAAA;EACA,kBAAA;EACA,2BAAA;AAER","sourcesContent":["body {\n    margin: 0;\n    min-height: 100vh;\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n    background-color: white;\n    background-image: linear-gradient(80deg, rgb(248, 80, 156), rgb(245, 136, 33));\n    font-family: Arial, Helvetica, sans-serif;\n}\n\n.banner{\n    width: 100%;\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    flex-direction: column;\n    img {\n        width: 50%;\n        max-height: 300px;\n    }\n    h1 {\n        width: 100%;\n        text-align: center;\n        color: rgba(23,5, 58, 0.8);\n    }\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"banner": `KTmxx2sH00E53HXHCND1`
@@ -326,22 +344,43 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.TKdPfLWuQZ3wBBMgYFyM {
   /*! keep */
   font-size: 1.5rem;
   color: rgba(23, 5, 58, 0.79);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+}
+.TKdPfLWuQZ3wBBMgYFyM .MLJx4orhNwiDArIbtG86 {
+  display: flex;
+  justify-content: space-between;
+}
+.TKdPfLWuQZ3wBBMgYFyM .AtiHr1rSdLnp6_zVjuKr {
+  background: #fff;
+  padding: 7px;
+  border-radius: 50%;
+}
+.TKdPfLWuQZ3wBBMgYFyM .UNahiSFHKQRaNdrGVouE {
+  text-decoration: none;
+  color: white;
 }
 .TKdPfLWuQZ3wBBMgYFyM .JSmS6vn316ABbTaYqDzk {
   background-color: transparent;
   text-transform: uppercase;
   cursor: pointer;
-  color: #999;
+  color: aliceblue;
   padding: 0.25rem 1rem;
   font-size: 1rem;
   font-weight: 700;
   display: inline-block;
   margin-left: 1rem;
   border: 0px;
-}`, "",{"version":3,"sources":["webpack://./src/components/Bookmark/Bookmark.module.scss"],"names":[],"mappings":"AAAA;EACI,UAAA;EACA,iBAAA;EACA,4BAAA;AACJ;AAAI;EACI,6BAAA;EACA,yBAAA;EACA,eAAA;EACA,WAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,WAAA;AAER","sourcesContent":[".bookmark {\n    /*! keep */\n    font-size: 1.5rem;\n    color: rgba(23, 5, 58, 0.79);\n    .button {\n        background-color: transparent;\n        text-transform: uppercase;\n        cursor: pointer;\n        color: #999;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 0px;\n    }\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/Bookmark/Bookmark.module.scss"],"names":[],"mappings":"AAAA;EACI,UAAA;EACA,iBAAA;EACA,4BAAA;EACA,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;AACJ;AACI;EACI,aAAA;EACA,8BAAA;AACR;AAEI;EACI,gBAAA;EACA,YAAA;EACA,kBAAA;AAAR;AAGI;EACI,qBAAA;EACA,YAAA;AADR;AAII;EACI,6BAAA;EACA,yBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,WAAA;AAFR","sourcesContent":[".bookmark {\n    /*! keep */\n    font-size: 1.5rem;\n    color: rgba(23, 5, 58, 0.79);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    padding: 7px;\n\n    .row {\n        display: flex;\n        justify-content: space-between;\n    }\n\n    .bookmarkImg {\n        background: #fff;\n        padding: 7px;\n        border-radius: 50%;\n      }\n\n    .bookmarkLink {\n        text-decoration: none;\n        color: white;\n    }\n\n    .button {\n        background-color: transparent;\n        text-transform: uppercase;\n        cursor: pointer;\n        color: aliceblue;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 0px;\n    }\n\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"bookmark": `TKdPfLWuQZ3wBBMgYFyM`,
+	"row": `MLJx4orhNwiDArIbtG86`,
+	"bookmarkImg": `AtiHr1rSdLnp6_zVjuKr`,
+	"bookmarkLink": `UNahiSFHKQRaNdrGVouE`,
 	"button": `JSmS6vn316ABbTaYqDzk`
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
@@ -368,28 +407,29 @@ ___CSS_LOADER_EXPORT___.locals = {
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, `.Y9rNf4f3lleHsoKVWRIg {
+  background-color: rgba(70, 70, 70, 0.9);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
-  color: rgba(23, 5, 58, 0.8);
+  color: rgba(251, 250, 254, 0.8);
   border-radius: 9px;
   border: 1px solid rgba(23, 5, 58, 0.1);
   padding: 2rem;
   box-shadow: 2px 4px 8px rgba(23, 5, 58, 0.5);
 }
 .Y9rNf4f3lleHsoKVWRIg .xqIdbaiF17DoAye5kkLw {
-  color: rgba(89, 15, 230, 0.8);
+  color: #63b8f1;
   display: inline-block;
   font-size: 1rem;
   height: 1.5rem;
   margin: 1rem;
   border: 0;
-  background-color: aliceblue;
+  background: rgba(48, 48, 48, 0.481);
 }
 .Y9rNf4f3lleHsoKVWRIg .v533vRSRM90JBRrBzjUx {
-  background-color: rgba(25, 5, 58, 0.8);
+  background-color: rgba(48, 48, 48, 0.481);
   text-transform: uppercase;
   cursor: pointer;
   color: ghostwhite;
@@ -400,7 +440,12 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.Y9rNf4f3lleHsoKVWRIg {
   margin-left: 1rem;
   border: 2px;
   box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);
-}`, "",{"version":3,"sources":["webpack://./src/components/BookmarkList/BookmarkList.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,eAAA;EACA,2BAAA;EACA,kBAAA;EACA,sCAAA;EACA,aAAA;EACA,4CAAA;AACJ;AAAI;EACI,6BAAA;EACA,qBAAA;EACA,eAAA;EACA,cAAA;EACA,YAAA;EACA,SAAA;EACA,2BAAA;AAER;AAAI;EACI,sCAAA;EACA,yBAAA;EACA,eAAA;EACA,iBAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,WAAA;EACA,0CAAA;AAER","sourcesContent":[".bookmarklist {\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    color: rgba(23,5, 58, 0.8);\n    border-radius: 9px;\n    border: 1px solid rgba(23,5, 58, 0.1);\n    padding: 2rem;\n    box-shadow: 2px 4px 8px rgba(23,5, 58, 0.5);\n    .input {\n        color:rgba(89, 15, 230, 0.8);\n        display: inline-block;\n        font-size: 1rem;\n        height: 1.5rem;\n        margin: 1rem;\n        border: 0;\n        background-color:aliceblue;\n    };\n    .button {\n        background-color: rgba(25, 5, 58, 0.8);\n        text-transform: uppercase;\n        cursor: pointer;\n        color: ghostwhite;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 2px;\n        box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);\n    }\n}"],"sourceRoot":""}]);
+  transition: border-color 0.3s ease;
+}
+.Y9rNf4f3lleHsoKVWRIg .v533vRSRM90JBRrBzjUx:hover {
+  border-color: #3498db; /* Change the border color on hover */
+  box-shadow: 0 0 5px #3498db, 0 2px 5px rgba(23, 5, 58, 0.5); /* Add glowing effect */
+}`, "",{"version":3,"sources":["webpack://./src/components/BookmarkList/BookmarkList.module.scss"],"names":[],"mappings":"AAAA;EACI,uCAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,eAAA;EACA,+BAAA;EACA,kBAAA;EACA,sCAAA;EACA,aAAA;EACA,4CAAA;AACJ;AAAI;EACI,cAAA;EACA,qBAAA;EACA,eAAA;EACA,cAAA;EACA,YAAA;EACA,SAAA;EACA,mCAAA;AAER;AAAI;EACI,yCAAA;EACA,yBAAA;EACA,eAAA;EACA,iBAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,WAAA;EACA,0CAAA;EACA,kCAAA;AAER;AAAI;EACI,qBAAA,EAAA,qCAAA;EACA,2DAAA,EAAA,uBAAA;AAER","sourcesContent":[".bookmarklist {\n    background-color: rgba(70, 70, 70, 0.9);\n    display: flex;\n    flex-direction: column;\n    justify-content: center;\n    align-items: center;\n    font-size: 2rem;\n    color: rgba(251, 250, 254, 0.8);\n    border-radius: 9px;\n    border: 1px solid rgba(23,5, 58, 0.1);\n    padding: 2rem;\n    box-shadow: 2px 4px 8px rgba(23,5, 58, 0.5);\n    .input {\n        color: #63b8f1;\n        display: inline-block;\n        font-size: 1rem;\n        height: 1.5rem;\n        margin: 1rem;\n        border: 0;\n        background: rgba(48, 48, 48, 0.481)\n    };\n    .button {\n        background-color: rgba(48, 48, 48, 0.481);\n        text-transform: uppercase;\n        cursor: pointer;\n        color: ghostwhite;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 2px;\n        box-shadow: 0 2px 5px rgba(23, 5, 58, 0.5);\n        transition: border-color 0.3s ease; \n    }\n    .button:hover {\n        border-color: #3498db; /* Change the border color on hover */\n        box-shadow: 0 0 5px #3498db, 0 2px 5px rgba(23, 5, 58, 0.5); /* Add glowing effect */\n      }\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"bookmarklist": `Y9rNf4f3lleHsoKVWRIg`,
@@ -742,4 +787,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.c7ea4f67333a3c6e717c2abfffb2c983.js.map
+//# sourceMappingURL=App.599ba1cd06c9ea5c3a96468bdd723f54.js.map

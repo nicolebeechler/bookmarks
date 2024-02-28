@@ -46,10 +46,10 @@ export default function BookmarkList ({
             <Bookmark 
                 key={bookmark._id} 
                 bookmark={bookmark}
-                // updateAction={(id) => updateBookmark(id, newBookmark)} 
-                // updateButtonText={`Update`}
+                updateAction={(id) => updateBookmark(id, newBookmark)} 
+                updateButtonText={`Edit`}
                 deleteAction={deleteBookmark}
-                deleteButtonText={`X`}
+                deleteButtonText={`Delete`}
             />
         ))}
         </div>
