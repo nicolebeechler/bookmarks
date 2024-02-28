@@ -145,9 +145,9 @@ function Bookmark(_ref) {
     deleteButtonText
   } = _ref;
   return /*#__PURE__*/React.createElement("div", {
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmark
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkContainer
   }, /*#__PURE__*/React.createElement("div", {
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].row
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmark
   }, /*#__PURE__*/React.createElement("a", {
     className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkLink,
     target: "_blank",
@@ -155,23 +155,36 @@ function Bookmark(_ref) {
   }, /*#__PURE__*/React.createElement("img", {
     className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkImg,
     src: "https://www.google.com/s2/favicons?domain=".concat(bookmark.url, "&sz=24"),
-    alt: bookmark.title,
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkImage
-  }))), /*#__PURE__*/React.createElement("div", {
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].row
+    alt: bookmark.title
+  })), /*#__PURE__*/React.createElement("label", {
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].dropDown
+  }, /*#__PURE__*/React.createElement("select", {
+    onChange: e => {
+      const action = e.target.value;
+      if (action === "Update") {
+        updateAction(bookmark._id);
+      } else if (action === "Delete") {
+        deleteAction(bookmark._id);
+      } else if (action === "Visit") {
+        window.open(bookmark.url, '_blank');
+      }
+    }
+  }, /*#__PURE__*/React.createElement("option", {
+    value: "Bookmark",
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].dropDown
+  }, bookmark.title), /*#__PURE__*/React.createElement("option", {
+    value: "Visit",
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].dropDown
   }, /*#__PURE__*/React.createElement("a", {
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].bookmarkLink,
     target: "_blank",
     href: bookmark.url
-  }, bookmark.title)), /*#__PURE__*/React.createElement("div", {
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].row
-  }, /*#__PURE__*/React.createElement("button", {
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].button,
-    onClick: () => updateAction(bookmark._id)
-  }, updateButtonText), /*#__PURE__*/React.createElement("button", {
-    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].button,
-    onClick: () => deleteAction(bookmark._id)
-  }, deleteButtonText)));
+  }, "Launch")), /*#__PURE__*/React.createElement("option", {
+    value: "Update",
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].dropDown
+  }, updateButtonText), /*#__PURE__*/React.createElement("option", {
+    value: "Delete",
+    className: _Bookmark_module_scss__WEBPACK_IMPORTED_MODULE_0__["default"].dropDown
+  }, deleteButtonText)))));
 }
 
 /***/ }),
@@ -340,8 +353,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_node_modules_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, `.TKdPfLWuQZ3wBBMgYFyM {
-  /*! keep */
+___CSS_LOADER_EXPORT___.push([module.id, `.k6ypUdZIToQcx5q02lTg {
   font-size: 1.5rem;
   color: rgba(23, 5, 58, 0.79);
   display: flex;
@@ -350,20 +362,28 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.TKdPfLWuQZ3wBBMgYFyM {
   align-items: center;
   padding: 7px;
 }
-.TKdPfLWuQZ3wBBMgYFyM .MLJx4orhNwiDArIbtG86 {
+.k6ypUdZIToQcx5q02lTg .TKdPfLWuQZ3wBBMgYFyM {
+  /*! keep */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 7px;
+}
+.k6ypUdZIToQcx5q02lTg .TKdPfLWuQZ3wBBMgYFyM .MLJx4orhNwiDArIbtG86 {
   display: flex;
   justify-content: space-between;
 }
-.TKdPfLWuQZ3wBBMgYFyM .AtiHr1rSdLnp6_zVjuKr {
+.k6ypUdZIToQcx5q02lTg .TKdPfLWuQZ3wBBMgYFyM .AtiHr1rSdLnp6_zVjuKr {
   background: #fff;
   padding: 7px;
   border-radius: 50%;
 }
-.TKdPfLWuQZ3wBBMgYFyM .UNahiSFHKQRaNdrGVouE {
+.k6ypUdZIToQcx5q02lTg .TKdPfLWuQZ3wBBMgYFyM .UNahiSFHKQRaNdrGVouE {
   text-decoration: none;
   color: white;
 }
-.TKdPfLWuQZ3wBBMgYFyM .JSmS6vn316ABbTaYqDzk {
+.k6ypUdZIToQcx5q02lTg .TKdPfLWuQZ3wBBMgYFyM .JSmS6vn316ABbTaYqDzk {
   background-color: transparent;
   text-transform: uppercase;
   cursor: pointer;
@@ -374,9 +394,10 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.TKdPfLWuQZ3wBBMgYFyM {
   display: inline-block;
   margin-left: 1rem;
   border: 0px;
-}`, "",{"version":3,"sources":["webpack://./src/components/Bookmark/Bookmark.module.scss"],"names":[],"mappings":"AAAA;EACI,UAAA;EACA,iBAAA;EACA,4BAAA;EACA,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;AACJ;AACI;EACI,aAAA;EACA,8BAAA;AACR;AAEI;EACI,gBAAA;EACA,YAAA;EACA,kBAAA;AAAR;AAGI;EACI,qBAAA;EACA,YAAA;AADR;AAII;EACI,6BAAA;EACA,yBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,WAAA;AAFR","sourcesContent":[".bookmark {\n    /*! keep */\n    font-size: 1.5rem;\n    color: rgba(23, 5, 58, 0.79);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    padding: 7px;\n\n    .row {\n        display: flex;\n        justify-content: space-between;\n    }\n\n    .bookmarkImg {\n        background: #fff;\n        padding: 7px;\n        border-radius: 50%;\n      }\n\n    .bookmarkLink {\n        text-decoration: none;\n        color: white;\n    }\n\n    .button {\n        background-color: transparent;\n        text-transform: uppercase;\n        cursor: pointer;\n        color: aliceblue;\n        padding: 0.25rem 1rem;\n        font-size: 1rem;\n        font-weight: 700;\n        display: inline-block;\n        margin-left: 1rem;\n        border: 0px;\n    }\n\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/Bookmark/Bookmark.module.scss"],"names":[],"mappings":"AAAA;EACI,iBAAA;EACA,4BAAA;EACA,aAAA;EACA,mBAAA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;AACJ;AACI;EACI,UAAA;EACA,aAAA;EACA,sBAAA;EACA,uBAAA;EACA,mBAAA;EACA,YAAA;AACR;AACQ;EACI,aAAA;EACA,8BAAA;AACZ;AAEQ;EACI,gBAAA;EACA,YAAA;EACA,kBAAA;AAAZ;AAGQ;EACI,qBAAA;EACA,YAAA;AADZ;AAIQ;EACI,6BAAA;EACA,yBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,eAAA;EACA,gBAAA;EACA,qBAAA;EACA,iBAAA;EACA,WAAA;AAFZ","sourcesContent":[".bookmarkContainer {\n    font-size: 1.5rem;\n    color: rgba(23, 5, 58, 0.79);\n    display: flex;\n    flex-direction: row;\n    justify-content: center;\n    align-items: center;\n    padding: 7px;\n\n    .bookmark {\n        /*! keep */\n        display: flex;\n        flex-direction: column;\n        justify-content: center;\n        align-items: center;\n        padding: 7px;\n\n        .row {\n            display: flex;\n            justify-content: space-between;\n        }\n\n        .bookmarkImg {\n            background: #fff;\n            padding: 7px;\n            border-radius: 50%;\n        }\n\n        .bookmarkLink {\n            text-decoration: none;\n            color: white;\n        }\n\n        .button {\n            background-color: transparent;\n            text-transform: uppercase;\n            cursor: pointer;\n            color: aliceblue;\n            padding: 0.25rem 1rem;\n            font-size: 1rem;\n            font-weight: 700;\n            display: inline-block;\n            margin-left: 1rem;\n            border: 0px;\n        }\n\n    }\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
+	"bookmarkContainer": `k6ypUdZIToQcx5q02lTg`,
 	"bookmark": `TKdPfLWuQZ3wBBMgYFyM`,
 	"row": `MLJx4orhNwiDArIbtG86`,
 	"bookmarkImg": `AtiHr1rSdLnp6_zVjuKr`,
@@ -787,4 +808,4 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=App.599ba1cd06c9ea5c3a96468bdd723f54.js.map
+//# sourceMappingURL=App.404f3cc661b3969b135d7bdce870b815.js.map
