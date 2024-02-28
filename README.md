@@ -1,6 +1,6 @@
 # Bookmarks MERN Project
 
-![](https://i.imgur.com/9IZ6ZPz.png)
+![](https://i.imgur.com/F4SRC0D.png)
 
 ## Steps
 
